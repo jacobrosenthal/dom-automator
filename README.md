@@ -19,50 +19,21 @@ npm install dom-automator
 ## Usage
 
 ```ts
-import { analyze, createActions, createActionScript } from 'dom-automator'
-import series from 'p-series'
+import { createAgent, createActionScript } from 'dom-automator'
 
-const dom = analyze('<html>your dom string here</html>')
-const actions = await createActions('Send an email to Todd that I cant make the meeting today', dom)
+const getCurrentDOM = async (): string => {
+  return '<html></html>'
+}
 
-series(actions, async (act) => {
+const agent = await createAgent('Send an email to Todd that I cant make the meeting today', getCurrentDOM)
+
+// agent.actions() is an AsyncGenerator
+for await (const act of agent.actions()) {
     console.log('Executing:', act)
     const js = createActionScript(act)
-    // Execute JS as needed
-})
+    // Act it out here
+}
 ```
-
-## API
-
-### analyze(domString, options?)
-
-#### domString
-
-Type: `string`
-
-#### options
-
-Type: `object`
-
-### createActions(prompt, dom, options?)
-
-#### prompt
-
-Type: `string`
-
-#### dom
-
-Type: `DOMObject`
-
-#### options
-
-Type: `object`
-
-### executeAction(options?)
-
-#### options
-
-Type: `object`
 
 [build-img]:https://github.com/getcanopy/dom-automator/actions/workflows/release.yml/badge.svg
 [build-url]:https://github.com/getcanopy/dom-automator/actions/workflows/release.yml
