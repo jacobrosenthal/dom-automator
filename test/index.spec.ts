@@ -1,16 +1,16 @@
-import { analyze, createActions, createActionScript } from '../src'
+import { analyze, createAgent, createActionScript } from '../src'
 
 describe('analyze', () => {
   it('should analyze a basic DOM string', () => {
     const input = '<html><body><p>Test</p></body></html>'
     const result = null
 
-    expect(analyze(input)).toMatch(result)
+    expect(analyze(input)).toEqual(result)
   })
 })
 
-describe('createActions', () => {
-  it('should analyze a basic DOM string', () => {
+describe('createAgent', () => {
+  it('should create actions for a basic prompt', () => {
     // TODO
   })
 })

@@ -1,18 +1,23 @@
-type DOM = {}
-type Action = {}
+type Action = {
+  type: string
+}
+type Agent = {
+  actions: AsyncIterator<Action>
+}
 
 export const analyze = (
   domString: string,
   options?: Record<string, any>
-): DOM => {
+): string => {
   return null
 }
 
-export const createActions = async (
+export const createAgent = async (
   prompt: string,
-  dom: DOM,
+  getDOM: () => Promise<string>,
   options?: Record<string, any>
-): Action[] => {
+): Agent => {
+  const startDOM = await getDOM()
   return null
 }
 
