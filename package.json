@@ -1,7 +1,7 @@
 {
   "name": "dom-automator",
   "version": "1.0.0",
-  "description": "Automation and analysis for actions on the DOM",
+  "description": "Package for analyzing and automating actions on a DOM",
   "main": "./lib/index.js",
   "files": [
     "lib/**/*"
